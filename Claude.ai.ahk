@@ -3,10 +3,11 @@ AE_Claude()
 AE_Claude.SM_BISL(&sm)
 
 ; VSCode Claude Integration Extension
-; #Include <..\Personal\Common_Personal>
+#Include <..\Personal\Common_Personal>
 
 ; Global variables
-Global API_KEY := '' ;log.Claude.API_Key
+; Global API_KEY := '' ;log.Claude.API_Key
+Global API_KEY := log.Claude.API_Key
 global API_URL := "https://api.anthropic.com/v1/messages"
 
 ; Main hotkey to trigger Claude interaction
@@ -200,37 +201,6 @@ class AE_Claude {
 		SetKeyDelay(delay_key, delay_press)
 	}
 	static SetDelays(n) => this._SetDelays(n)
-
-	/************************************************************************
-	* @description Set or return the DPI Awareness
-	* @example AE_Claude.DPIAwareness()
-	***********************************************************************/
-	static _DPIAwareness() {
-		global A_DPIAwareness
-		; A_DPIAwareness := DPI().WinGetDpi('A')
-		A_DPIAwareness := DPI.WinGetDpi('A')
-		return A_DPIAwareness
-	}
-	static DPIAwareness() => this._DPIAwareness()
-
-	/************************************************************************
-	* @description Focus on a control and activate its window
-	* @function AE_Claude._Focus(&fCtl,&hWndMainWindow)
-	* @param 	{Integer} fCtl : focused control handle
-	* @param 	{Integer} hWndMainWindow : the contol's window's handle (hWnd)
-	* @function	WinGetTitle(DllCall("GetAncestor","uint",fCtl,"uint",GA_ROOTOWNER:=2))
-	* @returns 	{Integer}
-	***********************************************************************/
-	static _Focus(&fCtl?, &hWndMainWindow?) {
-		fCtl := ControlGetFocus('A')
-		hWndMainWindow := WinGetTitle(DllCall("GetAncestor", "uint", fCtl, "uint", GA_ROOTOWNER := 2))
-		WinActivate(hWndMainWindow)
-		hWnd := WinActive('A')
-		nCtl := ControlGetClassNN(fCtl)
-		GetKeyState(key.sc.ctrl, 'P') ? Send(key.ctrlup) : 0
-		KeyWait(key.sc.ctrl, 'U')
-		return fCtl
-	}
 
 	/************************************************************************
 	* @description Set BlockInput and SendLevel
@@ -492,7 +462,7 @@ class AE_Claude {
 
 	static SelectAll() {
 		static EM_SETSEL := 0x00B1
-		focusedControl := ControlGetFocus("A")
+		focusedControl := this.hfCtl()
 		if (focusedControl) {
 			SendMessage(EM_SETSEL, 0, -1, focusedControl)
 		}
@@ -500,7 +470,7 @@ class AE_Claude {
 
 	static Copy() {
 		static WM_COPY := 0x0301
-		focusedControl := ControlGetFocus("A")
+		focusedControl := this.hfCtl()
 		if (focusedControl) {
 			SendMessage(WM_COPY, 0, 0, focusedControl)
 		}
@@ -508,87 +478,10 @@ class AE_Claude {
 
 	static Paste() {
 		static WM_PASTE := 0x0302
-		focusedControl := ControlGetFocus("A")
+		focusedControl := this.hfCtl()
 		if (focusedControl) {
 			SendMessage(WM_PASTE, 0, 0, focusedControl)
 		}
-	}
-
-	static GetRichTextFromClipboard() {
-		if !DllCall("OpenClipboard", "Ptr", 0)
-			return ""
-
-		richText := ""
-		if (hData := DllCall("GetClipboardData", "UInt", 0xD, "Ptr")) {
-			pData := DllCall("GlobalLock", "Ptr", hData, "Ptr")
-			richText := StrGet(pData, "UTF-8")
-			DllCall("GlobalUnlock", "Ptr", hData)
-		}
-
-		DllCall("CloseClipboard")
-		return richText
-	}
-
-	; static ExtractPlainTextFromRTF(rtfText) {
-	;     plainText := rtfText
-	;     plainText := RegExReplace(plainText, "^\{\\rtf1.*?\\par", "")  ; Remove RTF header
-	;     plainText := RegExReplace(plainText, "\\[a-z]+", "")  ; Remove RTF commands
-	;     plainText := RegExReplace(plainText, "\\'[0-9a-f]{2}", "")  ; Remove escaped characters
-	;     plainText := StrReplace(plainText, "\par", "`n")  ; Replace paragraph breaks with newlines
-	;     plainText := StrReplace(plainText, "}", "")  ; Remove closing brace
-	;     return Trim(plainText)
-	; }
-	static ExtractPlainTextFromRTF(rtfContent) {
-		; Simple extraction, might need improvement for complex RTF
-		plainText := RegExReplace(rtfContent, "^\{\\rtf1.*?\\par", "")
-		plainText := RegExReplace(plainText, "\\[a-z]+", "")
-		plainText := RegExReplace(plainText, "\\'[0-9a-f]{2}", "")
-		plainText := StrReplace(plainText, "\par", "`n")
-		plainText := StrReplace(plainText, "}", "")
-		return Trim(plainText)
-	}
-
-	static UpdateRichTextWithReplacements(richText, originalPlainText, modifiedPlainText) {
-		if (originalPlainText == modifiedPlainText)
-			return richText
-
-		; Create a map of original to modified substrings
-		replaceMap := Map()
-		originalParts := StrSplit(originalPlainText, "`n")
-		modifiedParts := StrSplit(modifiedPlainText, "`n")
-		
-		for index, originalPart in originalParts {
-			if (originalPart != modifiedParts[index]) {
-				replaceMap[originalPart] := modifiedParts[index]
-			}
-		}
-
-		; Replace in rich text
-		for original, modified in replaceMap {
-			richText := StrReplace(richText, original, modified)
-		}
-
-		return richText
-	}
-	static SetClipboardRichText(rtfContent) {
-		if !DllCall("OpenClipboard", "Ptr", 0)
-			return false
-
-		DllCall("EmptyClipboard")
-		hMem := DllCall("GlobalAlloc", "UInt", 0x42, "Ptr", StrPut(rtfContent, "UTF-8"))
-		pMem := DllCall("GlobalLock", "Ptr", hMem, "Ptr")
-		StrPut(rtfContent, pMem, "UTF-8")
-		DllCall("GlobalUnlock", "Ptr", hMem)
-		DllCall("SetClipboardData", "UInt", 0xD, "Ptr", hMem)
-		DllCall("CloseClipboard")
-		return true
-	}
-
-	static ReplaceTextInRTF(rtfContent, originalText, modifiedText) {
-		; This is a simplified approach and might need adjustment for complex RTF
-		escapedOriginal := RegExReplace(originalText, "([\\{}])", "\$1")
-		escapedModified := RegExReplace(modifiedText, "([\\{}])", "\$1")
-		return StrReplace(rtfContent, escapedOriginal, escapedModified)
 	}
 
 	/************************************************************************
@@ -607,52 +500,12 @@ class AE_Claude {
 	}
 
 	/************************************************************************
-	* @description Select text in the focused control
-	* @context_sensitive Yes
-	* @example AE_Claude._Select(0, -1)
-	***********************************************************************/
-	static EM_SETSEL := 177
-	static _Select(wParam, lParam) {
-		return DllCall('SendMessage', 'UInt', this.hfCtl(), 'UInt', this.EM_SETSEL, 'UInt', wParam, (wParam = 0 && lParam = -1) ? 'UIntP' : 'UInt', lParam)
-	}
-	static _Select_All() => this._Select(0, -1)
-	static SelectAll => (*) => this._Select(0, -1)
-	static _Select_Beginning() => this._Select(0, 0)
-	static SelectHome => (*) => this._Select(0, 0)
-	static _Select_End() => this._Select(-1, -1)
-	static SelectEnd => (*) => this._Select(-1, -1)
-
-	/************************************************************************
 	* @description Convert scan code to hexadecimal format
 	* @example AE_Claude.SC_Convert("a")
 	***********************************************************************/
 	static SC_Convert(key) {
 		key_SC := GetKeySC(key)
 		return Format("sc{:X}", key_SC)
-	}
-
-	/************************************************************************
-	* @description Paste using SendMessage
-	* @context_sensitive Yes
-	* @example AE_Claude.SendMessagePaste()
-	***********************************************************************/
-	static SendMessagePaste(*) {
-		Static Msg := WM_PASTE := 770, wParam := 0, lParam := 0
-		WinActive('ahk_exe Code.exe') ? Send(key.paste) : tryDll()
-		tryDll() {
-			try AE_Claude._Focus(&fCtl, &mainWin)
-			try SendMessage(Msg, wParam, lParam, fCtl, mainWin)
-		}
-	}
-	static smPaste => (*) => this.SendMessagePaste()
-
-	/************************************************************************
-	* @description Get the first line of a text
-	* @example AE_Claude.GetFirstLine("Hello`nWorld")
-	***********************************************************************/
-	static GetFirstLine(text) {
-		lines := StrSplit(text, "`n", "`r")
-		return lines[1]
 	}
 
 	/************************************************************************
@@ -667,7 +520,7 @@ class AE_Claude {
 		myGui.BackColor := BG
 		; WA:=WinActive("A")
 		If WA && !WinGetMinMax(WA) && !WinActive("GUI4Border ahk_class AutoHotkeyGUI"){
-			DPI.WinGetPos(&wX,&wY,&wW,&wH,WA)
+			WinGetPos(&wX,&wY,&wW,&wH,WA)
 			myGui.Show("x" wX " y" wY " w" wW " h" wH " NA")
 			Try WinSetRegion("0-0 " wW "-0 " wW "-" wH " 0-" wH " 0-0 " OS "-" OS " " wW-OS
 			. "-" OS " " wW-OS "-" wH-OS " " OS "-" wH-OS " " OS "-" OS,"GUI4Border")
@@ -770,7 +623,7 @@ class jsongo_claude {
     static Stringify(base_item, replacer:='', spacer:='', extract_all:=0) => this._Stringify(base_item, replacer, spacer, extract_all)
     
     static _Parse(jtxt, reviver:='') {
-        this.error_log := '', if_rev := (reviver is Func && reviver.MaxParams > 2) ? 1 : 0, xval := 1, xobj := 2, xarr := 3, xkey := 4, xstr := 5, xend := 6, xcln := 7, xeof := 8, xerr := 9, null := '', str_flag := Chr(5), tmp_q := Chr(6), tmp_bs:= Chr(7), expect := xval, json := [], path := [json], key := '', is_key:= 0, remove := jsongo.JSON_Remove(), fn := A_ThisFunc
+        this.error_log := '', if_rev := (reviver is Func && reviver.MaxParams > 2) ? 1 : 0, xval := 1, xobj := 2, xarr := 3, xkey := 4, xstr := 5, xend := 6, xcln := 7, xeof := 8, xerr := 9, null := '', str_flag := Chr(5), tmp_q := Chr(6), tmp_bs:= Chr(7), expect := xval, json := [], path := [json], key := '', is_key:= 0, remove := jsongo_claude.JSON_Remove(), fn := A_ThisFunc
         loop 31
             (A_Index > 13 || A_Index < 9 || A_Index = 11 || A_Index = 12) && (i := InStr(jtxt, Chr(A_Index), 1)) ? err(21, i, 'Character number: 9, 10, 13 or anything higher than 31.', A_Index) : 0
         for k, esc in [['\u005C', tmp_bs], ['\\', tmp_bs], ['\"',tmp_q], ['"',str_flag], [tmp_q,'"'], ['\/','/'], ['\b','`b'], ['\f','`f'], ['\n','`n'], ['\r','`r'], ['\t','`t']]
@@ -851,7 +704,7 @@ class jsongo_claude {
             default: _ind := lf := '', cln := ':'
         }
         
-        this.error_log := '', extract_all := (extract_all) ?  1 : this.extract_all ? 1 : 0, remove := jsongo.JSON_Remove(), value_types := 'String Number Array Map', value_types .= extract_all ? ' AnyObject' : this.extract_objects ? ' LiteralObject' : '', fn := A_ThisFunc
+        this.error_log := '', extract_all := (extract_all) ?  1 : this.extract_all ? 1 : 0, remove := jsongo_claude.JSON_Remove(), value_types := 'String Number Array Map', value_types .= extract_all ? ' AnyObject' : this.extract_objects ? ' LiteralObject' : '', fn := A_ThisFunc
         
         (if_rep = 1) ? base_item := replacer('', base_item, remove) : 0
         if (base_item = remove)
