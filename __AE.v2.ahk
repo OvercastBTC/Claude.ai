@@ -1,1 +1,0 @@
-C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/Lib/Directives/__AE.v2.ahk
