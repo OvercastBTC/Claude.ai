@@ -1,0 +1,45 @@
+{
+    "name": "vscode-claude-extension",
+    "displayName": "Claude AI Assistant",
+    "description": "Integrate Claude AI into VSCode",
+    "version": "0.0.1",
+    "engines": {
+      "vscode": "^1.60.0"
+    },
+    "categories": [
+        "AI",
+		"Chat",
+		"Programming Languages",
+		"Machine Learning"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+      "commands": [
+        {
+          "command": "vscode-claude-extension.queryClaude",
+          "title": "Query Claude AI"
+        }
+      ],
+      "configuration": {
+        "title": "Claude AI Assistant",
+        "properties": {
+          "claudeAssistant.apiKey": {
+            "type": "string",
+            "default": "",
+            "description": "API Key for Claude AI"
+          }
+        }
+      },
+    },
+    "keybindings": [
+			{
+				"key": "alt+j",
+				"command": "vscode-claude-extension.queryClaude"
+			}
+        ],
+    "devDependencies": {
+      "@types/vscode": "^1.60.0",
+      "@types/node": "14.x"
+    }
+  }
+  
