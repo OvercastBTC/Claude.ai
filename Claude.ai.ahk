@@ -3,7 +3,10 @@ AE_Claude()
 AE_Claude.SM_BISL(&sm)
 
 ; VSCode Claude Integration Extension
+; #Include <Extensions\cJson.ahk\Src\JSON>
 #Include <..\Personal\Common_Personal>
+#Include <Extensions\JSON>
+#Include <Extensions\jsongo.v2>
 
 ; Global variables
 ; Global API_KEY := '' ;log.Claude.API_Key
@@ -37,6 +40,7 @@ GetSelectedText(&cBak?){
 }
 
 QueryClaude(prompt){
+	global API_KEY
 	parsed := response := payload := headers := ''
 	headers := "Content-Type: application/json`nX-API-Key: " . API_KEY
 
@@ -69,7 +73,7 @@ QueryClaude(prompt){
 	}
 
 	; Parse JSON response and extract content
-	parsed := jsongo_claude.Parse(response)
+	parsed := jsongo.parse(response)
 	return parsed.content[1].text
 }
 

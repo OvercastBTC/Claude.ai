@@ -1,0 +1,600 @@
+{
+	"[ahk2]": {
+		// "editor.defaultFormatter": "mark-wiemer.vscode-autohotkey-plus-plus",
+		"editor.defaultFormatter": "thqby.vscode-autohotkey2-lsp",
+		"editor.quickSuggestions": {
+			"comments": true,
+			"other": true,
+			"strings": true
+		},
+		"files.autoSave": "onFocusChange",
+		"files.encoding": "utf8bom"
+	},
+	"[AutoHotkey v2]": {
+		// "editor.defaultFormatter": "mark-wiemer.vscode-autohotkey-plus-plus",
+		"editor.defaultFormatter": "thqby.vscode-autohotkey2-lsp",
+		"editor.quickSuggestions": {
+			"comments": true,
+			"other": true,
+			"strings": true
+		},
+		"files.autoSave": "onFocusChange",
+		"files.encoding": "utf8bom"
+	},
+	"[git-commit]": {
+		"editor.rulers": [
+			50,
+			72
+		],
+		"editor.wordWrap": "wordWrapColumn",
+		"workbench.editor.restoreViewState": true
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"AHK++.compiler": {
+		"compileIcon": "",
+		"compilerPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/Compiler/Ahk2Exe.exe",
+		"useMpress": false
+	},
+	"AHK++.menu": {
+		"showDebugButton": true
+	},
+	"AHK++.v1.file": {
+		"compileBaseFile": "",
+		"helpPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/AutoHotkey.chm",
+		"interpreterPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/AutoHotkeyU64.exe",
+		"templateSnippetName": "AhkTemplateV1"
+	},
+	"AHK++.v1.formatter": {
+		"allowedNumberOfEmptyLines": 1,
+		"indentCodeAfterIfDirective": true,
+		"indentCodeAfterLabel": true,
+		"preserveIndent": false,
+		"trimExtraSpaces": true
+	},
+	"AHK++.v1.intellisense": {
+		"maximumParseLength": -1
+	},
+	"AHK++.v2.completionCommitCharacters": {
+		"Class": "{",
+		"Function": "("
+	},
+	"AHK++.v2.debugConfiguration": {
+		"port": "9002-9100",
+		"useAnnounce": "detail",
+		"useAutoJumpToError": true,
+		"useDebugDirective": true,
+		"usePerfTips": true
+	},
+	"AHK++.v2.diagnostics": {
+		"classNonDynamicMemberCheck": true,
+		"paramsCheck": true
+	},
+	"AHK++.v2.exclude": [
+		"\"**/.history/**/*_[0-9]{0,15}.ahk\"",
+		"**/.history/*_[0-9]{0,15}.ahk"
+	],
+	"AHK++.v2.file": {
+		"compileBaseFile": "",
+		"helpPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/AutoHotkey.chm",
+		"interpreterPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/AutoHotkey64.exe",
+		"maxScanDepth": -1,
+		"templateSnippetName": "AhkTemplateV2"
+	},
+	"AHK++.v2.formatter": {
+		"arrayStyle": "expand",
+		"braceStyle": "One True Brace",
+		"breakChainedMethods": false,
+		"ignoreComment": false,
+		"indentString": "    ",
+		"indentBetweenHotIfDirectives": true,
+		"keywordStartWithUppercase": true,
+		"maxPreserveNewlines": 2,
+		"objectStyle": "expand",
+		"preserveNewlines": true,
+		"spaceBeforeConditional": true,
+		"spaceAfterDoubleColon": true,
+		"spaceInEmptyParen": false,
+		"spaceInOther": true,
+		"spaceInParen": false,
+		"switchCaseAlignment": false,
+		"symbolWithSameCase": false,
+		"whitespaceBeforeInlineComment": "",
+		"wrapLineLength": 120
+	},
+	"AHK++.v2.general": {
+		"actionWhenV1Detected": "SwitchToV1",
+		"commentTagRegex": "^;;\\s*(?<tag>.+)",
+		"completeFunctionCalls": true,
+		"librarySuggestions": "All",
+		"symbolFoldingFromOpenBrace": true,
+		"syntaxes": ""
+	},
+	"AHK++.v2.warn": {
+		"callWithoutParentheses": "Off",
+		"localSameAsGlobal": false,
+		"varUnset": true
+	},
+	//! AHK v2 //
+	"AhkNekoHelp.customize.CodeAction2GotoDefRef": true,
+	// ---> AHK Neko <--- //
+	"AhkNekoHelp.snippets.subCmdPlus": {
+		"Control": true,
+		"ControlGet": true,
+		"WinGet": true,
+		"WinSet": true
+	},
+	"AutoHotkey2.ActionWhenV1IsDetected": "SwitchToV1",
+	"AutoHotkey2.AutoLibInclude": "All",
+	"AutoHotkey2.CommentTags": "^;;\\s*(?<tag>.+)",
+	"AutoHotkey2.CompleteFunctionParens": true,
+	"AutoHotkey2.CompletionCommitCharacters": {
+		"Class": "{",
+		"Function": "("
+	},
+	"AutoHotkey2.DebugConfiguration": {
+		"port": "9002-9100",
+		"useAnnounce": "detail",
+		"useAutoJumpToError": true,
+		"useDebugDirective": true,
+		"usePerfTips": true
+	},
+	"AutoHotkey2.Diagnostics.ClassNonDynamicMemberCheck": true,
+	"AutoHotkey2.Files.Exclude": [
+		"${filename}[0-9]+",
+		"${filename}[0-9]+.[a-z]+",
+		"**.history**",
+		"**/.history",
+		"**/.history/*",
+		"**/.history/**",
+		"**/.history/**.ahk",
+		"**/.history/**/*.[a-z]+",
+		"**/.history/**_[0-9]+**",
+		"**/.history/**_[0-9]{15,}.ahk",
+		"**/common/.history",
+		"**/lib/.history",
+		"**_[0-9]{15,}.ahk",
+		"**history",
+		"../**/.history*",
+		"./.history*",
+		"???/.history",
+		"???/.history/${filename}_[0-9]{15,}.ahk",
+		"???/.history/**",
+		"???/.history/**/*_[0-9]{15,}.ahk",
+		"???/.history/*_[0-9]{15,}.ahk",
+	],
+	"AutoHotkey2.Files.ScanMaxDepth": -1,
+	"AutoHotkey2.FormatOptions": {
+		"array_style": "expand",
+		"brace_style": "One True Brace Variant",
+		"break_chained_methods": false,
+		"ignore_comment": false,
+		"indent_between_hotif_directive": true,
+		"indent_string": "    ",
+		"indentString": "    ",
+		"keyword_start_with_uppercase": false,
+		"max_preserve_newlines": 2,
+		"object_style": "expand",
+		"objectStyle": "expand",
+		"preserve_newlines": true,
+		"space_after_double_colon": true,
+		"space_before_conditional": true,
+		"space_in_empty_paren": false,
+		"space_in_other": true,
+		"space_in_paren": false,
+		"switch_case_alignment": false,
+		"symbol_with_same_case": false,
+		"white_space_before_inline_comment": "",
+		"wrap_line_length": 120,
+		"whitespaceBeforeInlineComment": ""
+	},
+	"AutoHotkey2.InterpreterPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/AutoHotkey64.exe",
+	// "AutoHotkey2.InterpreterPath": "${env:LOCALAPPDATA}/Programs/AutoHotkey/v2/AutoHotkey64.exe",
+	"AutoHotkey2.SymbolFoldingFromOpenBrace": true,
+	// "AutoHotkey2.Syntaxes": "C:/Users/bacona/.vscode/extensions/thqby.vscode-autohotkey2-lsp-\\d.\\d.\\d/syntaxes",
+	// "AutoHotkey2.Syntaxes": "C:/Users/bacona/.vscode/extensions/thqby.vscode-autohotkey2-lsp-\\\\d.\\\\d.\\\\d/syntaxes",
+	// "AutoHotkey2.Syntaxes": "${env:USERPROFILE}/.vscode/extensions/thqby.vscode-autohotkey2-lsp-${extensionVersion:thqby.vscode-autohotkey2-lsp}/syntaxes",
+	"AutoHotkey2.Syntaxes": "${env:USERPROFILE}/.vscode/extensions/thqby.vscode-autohotkey2-lsp-**/syntaxes",
+	"AutoHotkey2.Warn.LocalSameAsGlobal": false,
+	// "AutoHotkey2.Syntaxes": "C:/Users/bacona/.vscode/extensions/thqby.vscode-autohotkey2-lsp-[0-9].[0-9].[0-9]/syntaxes",
+	"better-comments.highlightPlainText": true,
+	"better-comments.tags": [
+		{
+			"backgroundColor": "transparent",
+			"bold": false,
+			"color": "#98C379",
+			"italic": false,
+			"strikethrough": false,
+			"tag": "*",
+			"underline": false
+		},
+		{
+			"backgroundColor": "transparent",
+			"bold": false,
+			"color": "#FF8C00",
+			"italic": false,
+			"strikethrough": false,
+			"tag": "todo",
+			"underline": false
+		},
+		{
+			"backgroundColor": "transparent",
+			"bold": false,
+			"color": "#474747",
+			"italic": false,
+			"strikethrough": true,
+			"tag": "//",
+			"underline": false
+		},
+		{
+			"backgroundColor": "transparent",
+			"bold": false,
+			"color": "#3498DB",
+			"italic": false,
+			"strikethrough": false,
+			"tag": " ---",
+			"underline": false
+		},
+		{
+			"backgroundColor": "transparent",
+			"bold": false,
+			"color": "#3498DB",
+			"italic": false,
+			"strikethrough": false,
+			"tag": "?",
+			"underline": false
+		},
+		{
+			"backgroundColor": "transparent",
+			"bold": false,
+			"color": "#FF2D00",
+			"italic": false,
+			"strikethrough": false,
+			"tag": "!",
+			"underline": false
+		}
+	],
+	"breadcrumbs.filePath": "on",
+	"breadcrumbs.icons": true,
+	"breadcrumbs.showArrays": true,
+	"breadcrumbs.showBooleans": true,
+	"breadcrumbs.showClasses": true,
+	"breadcrumbs.showConstants": true,
+	"breadcrumbs.showFiles": true,
+	"breadcrumbs.symbolPath": "on",
+	"breadcrumbs.symbolSortOrder": "type",
+	//code-runner//
+	"code-runner.defaultLanguage": "ahk2",
+	"code-runner.executorMap": {
+		"javascript": "node",
+		"java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+		"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"zig": "zig run",
+		"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"php": "php",
+		"python": "python -u",
+		"perl": "perl",
+		"perl6": "perl6",
+		"ruby": "ruby",
+		"go": "go run",
+		"lua": "lua",
+		"groovy": "groovy",
+		"powershell": "powershell -ExecutionPolicy ByPass -File",
+		"bat": "cmd /c",
+		"shellscript": "bash",
+		"fsharp": "fsi",
+		"csharp": "scriptcs",
+		"vbscript": "cscript //Nologo",
+		"typescript": "ts-node",
+		"coffeescript": "coffee",
+		"scala": "scala",
+		"swift": "swift",
+		"julia": "julia",
+		"crystal": "crystal",
+		"ocaml": "ocaml",
+		"r": "Rscript",
+		"applescript": "osascript",
+		"clojure": "lein exec",
+		"haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+		"rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+		"racket": "racket",
+		"scheme": "csi -script",
+		"ahk": "autohotkey",
+		"autoit": "autoit3",
+		"dart": "dart",
+		"pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+		"d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+		"haskell": "runghc",
+		"nim": "nim compile --verbosity:0 --hints:off --run",
+		"lisp": "sbcl --script",
+		"kit": "kitc --run",
+		"v": "v run",
+		"sass": "sass --style expanded",
+		"scss": "scss --style expanded",
+		"less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+		"FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+		"sml": "cd $dir && sml $fileName",
+		"mojo": "mojo run",
+		"erlang": "escript",
+		"spwn": "spwn build",
+		"pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+		"gleam": "gleam run -m $fileNameWithoutExt"
+	},
+	//cSpell//
+	"cSpell.enableFiletypes": [
+		"!ahk",
+		"!jsonc"
+	],
+	"cSpell.showAutocompleteSuggestions": true,
+	//css//
+	"css.format.spaceAroundSelectorSeparator": true,
+	"css.lint.boxModel": "warning",
+	//Ctrl_Ctrlpp//
+	"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.checkConfig": true,
+	"Ctrl_Ctrlpp.SLTQualityChecks.ctrlppcheck.verbose": true,
+	//debug//
+	"debug.inlineValues": "on",
+	"editor.acceptSuggestionOnCommitCharacter": true,
+	// ---> Editor Settings <--- //
+	"editor.acceptSuggestionOnEnter": "on",
+	"editor.autoClosingDelete": "always",
+	"editor.autoClosingOvertype": "auto",
+	"editor.autoClosingQuotes": "always",
+	"editor.autoIndent": "full",
+	"editor.autoSurround": "languageDefined",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+	"editor.defaultFormatter": "thqby.vscode-autohotkey2-lsp",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 4,
+	"editor.wordWrap": "on",
+	//emmet//
+	"emmet.useInlineCompletions": true,
+	//explorer//
+	"explorer.autoReveal": true,
+	"explorer.confirmDelete": true,
+	"explorer.excludeGitIgnore": true,
+	//files//
+	"files.associations": {
+		"*.ahk": "ahk2",
+		"*v1.ahk": "ahk",
+		"*v2.ahk": "ahk2"
+	},
+	"files.autoSave": "afterDelay",
+	// "files.autoSave": "onFocusChange",
+	// "files.autoSaveDelay": 1000,
+	"files.defaultLanguage": "ahk2",
+	"files.encoding": "utf8bom",
+	"files.exclude": {
+		"${filename}[0-9]+": true,
+		"${filename}[0-9]+.[a-z]+": true,
+		"**.history": true,
+		"**.history**": true,
+		"**/.history": true,
+		"**/.history/*": true,
+		"**/.history/**": true,
+		"**/.history/**.ahk": true,
+		"**/.history/**/*.[a-z]+": true,
+		"**/.history/**_[0-9]+**": true,
+		"**/.history/**_[0-9]{15,}.ahk": true,
+		"**/common/.history": true,
+		"**/lib/.history": true,
+		"**_[0-9]{15,}.ahk": true,
+		"???/.history": true,
+		"???/.history/${filename}_[0-9]{15,}.ahk": true,
+		"???/.history/***": true,
+		"???/.history/**/*_[0-9]{15,}.ahk": true,
+		"???/.history/*_[0-9]{15,}.ahk": true,
+		"**/*_[0-9]{15,}.[a-z]+": true,
+	},
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true,
+		"**/.hg/store/**": true,
+		"**/.history**": true,
+	},
+	"files.insertFinalNewline": true,
+	//git//
+	"git.allowForcePush": true,
+	"git.allowNoVerifyCommit": true,
+
+	"git.autoCommitMode": "smart",
+	"git.autofetch": true,
+	"git.autofetchcommittemplate": true,
+	"git.autoRepositoryDetection": true,
+	"git.autoStageAll": true,
+	"git.autoStash": true,
+	// "git.commitTemplate": "Auto-commit: ${LINE0}",
+	"git.commitTemplate": "Auto-commit: $GIT_AUTHOR $GIT_AUTHOR_DATE",
+	"git.confirmForcePush": true,
+	"git.confirmNoVerifyCommit": true,
+	"git.defaultBranchName": "master",
+	"git.defaultCloneDirectory": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2",
+	"git.detectSubmodules": true,
+	"git.enabled": true,
+	"git.enableSmartCommit": true,
+	// "git.fetchOnPull": false,
+	"git.inputValidationLength": 500,
+	"git.inputValidationSubjectLength": 72,
+	"git.openAfterClone": "alwaysNewWindow",
+	"git.openRepositoryInParentFolders": "always",
+	"git.postCommitCommand": "sync",
+	"git.rebaseWhenSync": true,
+	"git.repositoryScanMaxDepth": -1,
+	"git.ignoredRepositories": [
+		"C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/AHK.Projects.v2/Lib.Other",
+		"C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/AHK.Projects.v2/_HznPlus/"
+	],
+	"git.scanRepositories": [
+		"C:/Users/bacona/AppData/Local/Programs/AutoHotkey",
+		"C:/Users/bacona/OneDrive - FM Global/AHK.Main"
+	],
+	"git.smartCommitChanges": "all",
+	"git.suggestSmartCommit": true,
+	"git.useCommitInputAsStashMessage": true,
+	//gitdoc
+	"gitdoc.autoCommitDelay": 30000,
+	"gitdoc.autoPull": "onPush",
+	"gitdoc.autoPullDelay": 30000,
+	"gitdoc.autoPush": "onCommit",
+	"gitdoc.autoPushDelay": 30000,
+	"gitdoc.commitMessageFormat": "${date}",
+	"gitdoc.commitOnClose": true,
+	"gitdoc.commitValidationLevel": "error",
+	"gitdoc.enabled": true,
+	"gitdoc.filePattern": "**/*[!_[0-9]+]],!**/.history/**",
+	"gitdoc.pullOnOpen": true,
+	"gitdoc.pushMode": "forcePush",
+	"gitdoc.timeZone": "UTC-08",
+	"githubRepositories.autoFetch.enabled": true,
+	//githubRepositories
+	"githubRepositories.indexing.cacheSizeLimit": -1,
+	//gitlens
+	"gitlens.codeLens.enabled": true,
+	"gitlens.currentLine.enabled": true,
+	"gitlens.hovers.currentLine.over": "line",
+	// "gitlens."
+	"launch": {
+		"compounds": [],
+		"configurations": [
+			{
+				"name": "v2",
+				"program": "${file}",
+				"request": "launch",
+				"runtime": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2/AutoHotkey64.exe",
+				"stopOnEntry": true,
+				"type": "autohotkey"
+			},
+			{
+				"name": "v1",
+				"program": "${file}",
+				"request": "launch",
+				"runtime": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/AutoHotkeyU64.exe",
+				"stopOnEntry": true,
+				"type": "autohotkey"
+			},
+			{
+				"name": "AutoHotkey Debugger",
+				"program": "${file}",
+				"request": "launch",
+				"stopOnEntry": true,
+				"type": "autohotkey"
+			}
+		],
+		"inputs": [],
+		"version": "0.2.0"
+	},
+	//localHistory//
+	"localHistory.dateLocale": "en-US",
+	"localHistory.daysLimit": 0,
+	
+	//problems//
+	"problems.autoReveal": true,
+	"problems.decorations.enabled": true,
+	"problems.defaultViewMode": "tree",
+	"problems.showCurrentInStatus": false,
+	"problems.sortOrder": "severity",
+	"problems.visibility": true,
+	"outline.problems.enabled": true,
+	"outline.problems.badges": true,
+	"outline.problems.colors": true,
+	"problems.excludeMatchers": [
+		{
+			"pattern": "**/.history/**"
+		},
+		{
+			"pattern": "**/*_[0-9]{15,}.ahk"
+		}
+	],
+	
+	//projectManager//
+	"projectManager.any.ignoredFolders": [
+		"node_modules",
+		"out",
+		"typings",
+		"test",
+		"**/.history**"
+	],
+	//redhat//
+	"redhat.telemetry.enabled": true,
+	//search//
+	"search.defaultViewMode": "tree",
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/*.code-search": true,
+		"**/.history**":true,
+	},
+	//security
+	"security.workspace.trust.enabled": false,
+	//sort-json
+	"sort-json.settings.listSortType": "Value",
+	"sort-json.settings.objectSortType": "Key",
+	"sort-json.settings.promptCollectionKeys": false,
+	"sort-json.settings.sortLevel": 1,
+	"sort-json.settings.sortMode": "Objects Only",
+	//terminal//
+	"terminal.integrated.defaultProfile.windows": "Command Prompt",
+	//vscode-ahk-plus//
+	"vscode-ahk-plus.compilePath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/Compiler/Ahk2Exe.exe",
+	"vscode-ahk-plus.documentPath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/AutoHotkey.chm",
+	"vscode-ahk-plus.enableIntelliSense": true,
+	"vscode-ahk-plus.executePath": "C:/Users/bacona/AppData/Local/Programs/AutoHotkey/AutoHotkeyU64.exe",
+	//window//
+	"window.openFilesInNewWindow": "off",
+	"window.openFoldersInNewWindow": "on",
+	// ---> workbench <--- /
+	"workbench.colorTheme": "Default Dark+",
+	"workbench.editor.closeOnFileDelete": true,
+	"workbench.editor.defaultBinaryEditor": "default",
+	"workbench.editor.splitInGroupLayout": "vertical",
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.panel.defaultLocation": "bottom",
+	"workbench.settings.applyToAllProfiles": [
+	
+
+
+		"AutoHotkey2.Files.Exclude",
+		"AutoHotkey2**",
+		"editor.codeActionsOnSave",
+		"editor**",
+		"files.exclude",
+		"files.insertFinalNewline",
+		"files.watcherExclude",
+		"files.autoSave",
+		"files**",
+		"launch",
+		"gitdoc.filePattern",
+		"git.ignoredRepositories",
+		"git.scanRepositories",
+		"git.**",
+		"[ahk2]",
+		"[AutoHotkey v2]",
+		"[json]",
+		"AHK++.**",
+		"workbench**",
+		"vscode-ahk-plus**",
+		"sort-json**",
+		"window**",
+		"projectManager**",
+		"**problems**"
+	],
+	"workbench.settings.openDefaultSettings": true,
+	"workbench.sideBar.location": "right",
+	"workbench.startupEditor": "none",
+	"workbench.editor.alwaysShowEditorActions": true,
+	"editor.renderWhitespace": "all",
+	"projectManager.git.baseFolders": [
+		"C:/Users/bacona/AppData/Local/Programs/AutoHotkey/v2"
+	]
+	// "workbench.editor.cu"
+	// "workbench.editor.customLabels.patterns": {} //! Read this for global patters like ${dirname} ${filename} ${extname}
+}
