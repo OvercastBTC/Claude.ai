@@ -554,13 +554,6 @@ class AE_Claude {
 				titles.set('WinTitle_Parent', WinTitle_Parent)
 				try WinTitle_NoTopDescent := WinGetTitle(DllCall('GetAncestor', 'Ptr', winHandle, 'Int', GA_NOTOPDESCENT))
 				titles.set('WinTitle_NoTopDescent', WinTitle_NoTopDescent)
-				; try ancestor := DllCall('GetAncestor', 'Ptr', winHandle, 'Int', flag, 'Ptr')
-				; try ancestor := DllCall( "GetAncestor", 'uint', winHandle, 'uint', flag)
-				; try ancestor := DllCall( "GetAncestor", 'uint', winHandle, 'uint', flag, 'Ptr')
-				; titles[flag] := A_Index ': ' WinGetTitle('ahk_id ' . ancestor)
-				; if (ancestor) {
-				; 	titles[flag] := A_Index ': ' WinGetTitle('ahk_id ' . ancestor) '`n'
-				; }
 			}
 		}
 		if txtormap == true {
