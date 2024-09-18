@@ -1,5 +1,6 @@
 #Requires AutoHotkey v2+
-#Include <Directives\__AE.v2>
+; #Include <Directives\__AE.v2>
+#Include __AE.v2.ahk
 AE()
 AE.SM_BISL(&sm)
 
