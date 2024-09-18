@@ -3,14 +3,10 @@ AE_Claude()
 AE_Claude.SM_BISL(&sm)
 
 ; VSCode Claude Integration Extension
-; #Include <Extensions\cJson.ahk\Src\JSON>
-#Include <..\Personal\Common_Personal>
 #Include <Extensions\JSON>
-#Include <Extensions\jsongo.v2>
 
 ; Global variables
-; Global API_KEY := '' ;log.Claude.API_Key
-Global API_KEY := log.Claude.API_Key
+Global API_KEY := ''
 global API_URL := "https://api.anthropic.com/v1/messages"
 
 ; Main hotkey to trigger Claude interaction
@@ -58,6 +54,7 @@ QueryClaude(prompt){
 	}
 	)'
 
+	MsgBox(payload)
 	try	{
 		whr := ComObject("WinHttp.WinHttpRequest.5.1")
 		whr.Open("POST", API_URL, true)
@@ -73,8 +70,10 @@ QueryClaude(prompt){
 	}
 
 	; Parse JSON response and extract content
-	parsed := jsongo.parse(response)
-	return parsed.content[1].text
+	; parsed := jsongo.parse(response)
+	parsed := JSON.Load(response)
+	; return parsed.content[1].text
+	return parsed["content"][1].get('text')
 }
 
 InsertTextInVSCode(text, cBak?) {

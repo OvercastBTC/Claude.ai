@@ -1,12 +1,9 @@
 #Requires AutoHotkey v2.0+
 #SingleInstance Force
 #Include <Extensions\Json> ;JSON must have JSON.Load and JSON.Dump methods.
-; #Include <Extensions\jsongo.v2> ;JSON must have JSON.Load and JSON.Dump methods.
-#Include <..\Personal\Common_Personal>
 
 ; GetClaudeData(inputText, API_KEY := "Your API key here") {
-GetClaudeData(inputText) {
-	API_KEY := log.Claude.API_Key
+GetClaudeData(inputText, API_KEY := '') {
 	headers := "Content-Type: application/json`nX-API-Key: " . API_KEY
 
 	payload := ''
@@ -22,8 +19,7 @@ GetClaudeData(inputText) {
 	. '    }'
 
 	response := ""
-	try
-	{
+	try	{
 		whr := ComObject("WinHttp.WinHttpRequest.5.1")
 		whr.Open("POST", 'https://api.anthropic.com/v1/messages', true)
 		whr.SetRequestHeader("Content-Type", "application/json")
@@ -33,30 +29,45 @@ GetClaudeData(inputText) {
 		whr.WaitForResponse()
 		response := whr.ResponseText
 	}
-	catch as err
-	{
+	catch as err {
 		MsgBox("Error querying Claude API: " . err.Message)
 		return ""
 	}
 
 	; Parse JSON response and extract content
-	; parsed := JSON.Load(response)
-	parsed := JSON.Parse(response)
-	; parsed := jsongo.Parse(response)
+	parsed := JSON.Load(response)
 	return parsed["content"][1].get('text')
 	;You could compress those last four lines. I spread them out so it'll be easier to understand
 
 }
 
 ;Example of how to use the function.
-QueryClaudeAI() {
-	input := InputBox("Ask me anything...", "Claude AI API")
-	if (input.result = "cancel")
-		ExitApp()
-	MsgBox(GetClaudeData(input.Value))
+QueryClaudeAI(input:='', key?) {
+	key := 'Insert Key Here.'
+	if input = '' {
+		input := InputBox("Ask me anything...", "Claude AI API")
+		if (input.result = "cancel"){
+			ExitApp()
+		}
+		MsgBox(GetClaudeData(input.Value))
+		Loop {
+			QueryClaudeAI()
+		}
+	}
+	else {
+		MsgBox(GetClaudeData(input, key))
+	}
 }
-Loop {
-	QueryClaudeAI()
-}
+QueryClaudeAI(input := '')
+; QueryClaudeAI(input := 'Can you help me with AHK v2')
+; QueryClaudeAI() {
+; 	input := InputBox("Ask me anything...", "Claude AI API")
+; 	if (input.result = "cancel")
+; 		ExitApp()
+; 	MsgBox(GetClaudeData(input.Value))
+; }
+; Loop {
+; 	QueryClaudeAI()
+; }
 
 Esc:: ExitApp()
